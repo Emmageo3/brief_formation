@@ -1,0 +1,109 @@
+@foreach ($categories as $category)
+
+        
+            @foreach ($category->souscategories as $souscategory)
+                
+
+                @foreach ($souscategory->formations as $formation)
+                
+                <section class="row mb-3 justify-content-center row-secondary public-section">
+                    <div class="col-12">
+                        <div class="col-10 offset-1">
+                            <!-- Public title -->
+                            <h2 class=" fw-bold text-uppercase sp-red sp-line-under mb-2">{{ $formation->souscategory->category->titre }}</h2>
+                            <p class="my-5 text-justify">
+                                {{ $formation->souscategory->category->description }}
+                            </p>
+                            <div class="row align-items-center">
+                                <!-- menu secondaire -->
+                                <div class="menu secondary-menu position-fixed d-md-none secondary-menu-public sp-hidden-left">
+                                    <p
+                                        class=" active align-items-center d-flex p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
+                                        <span class="d-flex align-items-center">
+                                            <object type="image/svg+xml" data="./formations/img/SVG/IconFemmeBlanc.svg"
+                                                title="icon"></object>
+                                        </span>
+                                        Femme
+                                    </p>
+                                    <p
+                                        class="align-items-center d-flex p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
+                                        <span class="d-flex align-items-center">
+                                            <object type="image/svg+xml" data="./formations/img/SVG/IconDiscoverBlanc.svg"
+                                                title="icon"></object>
+                                        </span>
+                                        Kids
+                                    </p>
+                                    <p
+                                        class="align-items-center d-flex p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
+                                        <span class="d-flex align-items-center">
+                                            <object type="image/svg+xml" data="./formations/img/SVG/IconDiscoverBlanc.svg"
+                                                title="icon"></object>
+                                        </span>
+                                        PSH
+                                    </p>
+                                    <p
+                                        class="align-items-center d-flex p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
+                                        <span class="d-flex align-items-center">
+                                            <object type="image/svg+xml" data="./formations/img/SVG/IconDiscoverBlanc.svg"
+                                                title="icon"></object>
+                                        </span>
+                                        Refugies
+                                    </p>
+                                </div>
+                                <!-- menu -->
+                                <div class="d-none d-md-inline-block col-md-2 col-sm-12 p-0 text-center">
+                                    <div class="left-bloc my-4 d-flex align-items-center  align-items-sm-start ">
+                                        <div class="vertical-bar">
+                                        </div>
+                                        <div class="menu flex-column menu-public">
+                                            <p
+                                                class="active align-items-center d-flex my-4 p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
+                                                <span class="d-flex align-items-center">
+                                                    <object type="image/svg+xml" data="./formations/img/SVG/IconFemmeBlanc.svg"
+                                                        title="icon"></object>
+                                                </span>
+                                                {{ $formation->souscategory->titre }}
+                                            </p>
+                                        </div>
+            
+                                    </div>
+                                </div>
+                                <!-- card formation --> 
+                                <div class="col-md  col-sm-12">
+                                    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+                                        <div class="my-3 justify-content-center ">
+                                            <div class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
+                                                <img src="{{ $formation->image }}"
+                                                    class="card-img-top sp-rounded-top-15" alt="Leadership illustration">
+                                                <div class="card-body sp-rounded-bottom-15">
+                                                    <h5 class="card-title center text-uppercase fw-bold sp-red sp-text-sm">
+                                                        {{ $formation->titre }}
+                                                    </h5>
+                                                    <p class="card-text">
+                                                        {{ $formation->description }}
+                                                    </p>
+                                                    <a href="#"
+                                                        class=" d-inline-block my-2  sp-text-sm  px-3 py-1 sp-rounded-link  sp-btn-danger ">En
+                                                        savoir plus</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" col-12 px-0 text-end alert">
+                                        <a href="" class="text-decoration-underline alert-dark  alert-link bg-white">Afficher
+                                            tout 
+                                        <i class="bi bi-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                @endforeach
+
+
+            @endforeach
+ 
+    @endforeach

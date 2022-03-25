@@ -15,7 +15,7 @@ class SouscategoryController extends Controller
      */
     public function index($id = null)
     {
-        $query = $id ? Category::whereId($id)->firstOrFail()->souscategories() : Souscategory::query();
+        $query = $id ? Category::whereId($id)->firstOrFail()->category() : Souscategory::query();
         $souscategories = $query->oldest('titre')->paginate(5);
         $categories = Category::all();
         return view('index', compact('souscategories', 'categories', 'id'));

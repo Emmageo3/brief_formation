@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\SouscategoryController;
 use App\Models\Formation;
@@ -20,6 +22,8 @@ Route::get('/', function () {
 });
 
 Route::resource('formations', FormationController::class);
+
+Route::resource('categories', CategoryController::class);
 
 Route::controller(Formation::class)->group(function () {
     Route::get('category/{id}/souscategories/formations', 'index')->name('formations.souscategory.category');
