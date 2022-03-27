@@ -1,0 +1,11 @@
+
+
+@import "../node_modules/bootstrap/scss/_functions";
+@import "../node_modules/bootstrap/scss/_variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+$theme-colors: (
+  "simplon": #ce0033 ,
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
