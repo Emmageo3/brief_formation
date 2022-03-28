@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FormationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::resource('/formations', CategoryController::class)->middleware('auth');
+
+Route::get('/search',[FormationController::class,'search'])->name('formations.search');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

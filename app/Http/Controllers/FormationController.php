@@ -87,4 +87,15 @@ class FormationController extends Controller
     {
         //
     }
+
+    public function search()
+    {
+        $q = request()->input('q');
+
+        $formations = Formation::where('titre', 'like', "%$q%")
+                                ->orWhere('description', 'like', "%$q%")
+                                ->paginate(6);
+
+        return view('search', compact('formations'));
+    }
 }
