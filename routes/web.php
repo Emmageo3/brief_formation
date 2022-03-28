@@ -1,9 +1,6 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\FormationController;
-use App\Http\Controllers\SouscategoryController;
-use App\Models\Formation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,11 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('formations', FormationController::class);
+Route::resource('/formations', CategoryController::class)->middleware('auth');
 
-Route::resource('categories', CategoryController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::controller(Formation::class)->group(function () {
-    Route::get('category/{id}/souscategories/formations', 'index')->name('formations.souscategory.category');
-});
 
+
+require __DIR__.'/auth.php';
