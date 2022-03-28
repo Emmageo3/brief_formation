@@ -16,7 +16,7 @@ class FormationController extends Controller
     public function index($id = null)
     {
         $query = $id ? Souscategory::whereId($id)->firstOrFail()->formations() : Formation::query();
-        $formations = Formation::all();
+        $formations = Formation::paginate(6);
         $souscategories = Souscategory::all();
         return view('index', compact('formations', 'souscategories', 'id'));
     }
