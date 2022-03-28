@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\{Formation, Souscategory};
+use App\Models\{Category, Formation, Souscategory};
 use Illuminate\Http\Request;
 
 class FormationController extends Controller
@@ -50,8 +50,7 @@ class FormationController extends Controller
      */
     public function show(Formation $formation)
     {
-        $formation->with('souscategories')->get();
-        return view('show', compact('formations'));
+        return view('show', compact('formation'));
     }
 
     /**

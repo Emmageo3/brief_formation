@@ -19,9 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/formations', CategoryController::class)->middleware('auth');
+Route::resource('/formations', CategoryController::class)->middleware(['auth']);
 
 Route::get('/search',[FormationController::class,'search'])->name('formations.search');
+
+Route::get('/show/{formation}',[FormationController::class,'show'])->name('formations.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
